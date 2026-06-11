@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>copa-react</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
+
+
+<!--  const oitavas = [
+        ["Brasil", "Coreia do Sul"],
+        ["Argentina", "Austrália"],
+        ["França", "Polônia"],
+        ["Inglaterra", "Senegal"]
+    ];
+    const [winners, setWinners] = useState([]);
+    const [quartas, setQuartas] = useState([]);
+    const [semifinal, setSemifinal] = useState([]);
+    const [final, setFinal] = useState([]);
+
+    console.log('rodou');
+
+    localStorage.setItem(
+        "champion",
+        champion
+    )
+    localStorage.getItem(
+        "champion"
+    )
+    for (let i = 0; i < winners.length; i += 2) {
+        console.log(
+            winners[i],
+            winners[i + 1]
+        )
+    }
+
+
+    return (
+        <>
+            <div>
+
+                {teams.map((team) => {
+                    return <p>{team}</p>
+                })}
+                {oitavas.map((partida) => {
+                    return (
+                        <div>
+                            {partida[0]} x {partida[1]}
+                        </div>)
+                })}
+
+                < Match
+                    teamA="Brasil"
+                    teamB="Coreia do Sul">
+                </Match>
+
+                <button onClick={() => {
+                    setWinners(teamA)
+                    setWinners([
+                        ...winners,
+                        "Brasil"
+                    ])
+
+                }}>{teamA}
+
+                </button>
+
+
+                <Round
+                    title="Oitavas"
+                    matches={oitavas}
+                />
+
+                {
+                    champion && (
+                        <ChampionScreen champion={champion} />
+                    )}
+            </div>
+        </>
+    ) -->
