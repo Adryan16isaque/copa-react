@@ -1,5 +1,5 @@
 import { teams } from "./data/teams"
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Match from "./components/Match"
 import Round from "./components/Round"
 import ChampionScreen from "./components/ChampionScreen"
@@ -22,15 +22,28 @@ function App() {
         ["Marrocos", "Espanha"],
         ["Portugal", "Alemanha"]
     ];
+
+    useEffect(() => {
+
+        let jogosQuartas = []
+        for (let i = 0; i < winners.length; i += 2) {
+            jogosQuartas.push([
+                winners[i],
+                winners[i + 1]
+            ])
+        }
+
+        setQuartas(
+            jogosQuartas
+        )
+        console.log(jogosQuartas);
+    }, [winners])
+
     function adicionarVencedor(time) {
-        setWinners( prev=> [
+        setWinners(prev => [
             ...prev,//Funciona, mas quando houver muitos cliques rápidos, a forma mais segura é usar a versão com função:
             time
         ]);
-        // setQuartas([
-        //     ...winners,
-        //     time
-        // ])
     }
     for (let i = 0; i < winners.length; i += 2) {
         console.log(
@@ -39,15 +52,18 @@ function App() {
         );
     }
 
+
     return (
         <>
+            {/* Exibe os times da copa */}
             <div>
-                {teams.map((team,index) => {
+                {teams.map((team, index) => {
                     return <p key={team}>{team}</p>
                 })}
             </div>
+            {/*  */}
             <div>
-                {oitavas.map((partida,index) => {
+                {oitavas.map((partida, index) => {
                     return (
                         <div key={index}>
                             {partida[0]}x {partida[1]}
@@ -55,17 +71,19 @@ function App() {
                     )
                 })}
             </div>
+
+
             <Round
                 title="Oitavas"
                 matches={oitavas}
                 onWinner={adicionarVencedor}
             />
-            <Round
-                title="Quartas"
-                matches={quartas}
-                onWinner={adicionarVencedor}
-            />
-
+            {quartas.length == 4 &&
+                <Round
+                    title="quartas"
+                    matches={quartas}
+                />}
+            {/* 
             <Round
                 title="Semifinais"
                 matches={semifinais}
@@ -75,7 +93,7 @@ function App() {
                 title="Final"
                 matches={final}
                 onWinner={adicionarVencedor}
-            />
+            /> */}
 
 
             {/* {champion && (
